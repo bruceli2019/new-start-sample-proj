@@ -30,6 +30,11 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
   
+  test "root route test" do
+    get root_url
+    assert_response :success
+  end
+  
   
   
   
