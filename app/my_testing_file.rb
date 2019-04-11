@@ -80,3 +80,25 @@ def string_shuffle(str)
 end
 
 puts string_shuffle('foobar')
+
+#4.3.3
+spanish = { one: "uno", two: "dos", three: "tres"}
+spanish.each do |key, value|
+    puts "#{value} is #{key} in spanish"
+end
+
+person1 = { first: "joe", last: "biden"}
+person2 = { first: "donald", last: "trump"}
+person3 = { first: "dick", last: "cheney"}
+
+params_hash = { father: person1, mother: person2, child: person3}
+
+puts params_hash[:father][:first]
+
+my_hash = {}
+
+my_hash[:name] = "bruce"
+my_hash[:email] = "johncena@gmail.com"
+my_hash[:password] = ('a'..'z').to_a.shuffle[0..15].join
+
+puts my_hash
