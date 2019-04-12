@@ -102,3 +102,9 @@ my_hash[:email] = "johncena@gmail.com"
 my_hash[:password] = ('a'..'z').to_a.shuffle[0..15].join
 
 puts my_hash
+
+#4.4.1
+puts (1..10)
+#is the same as 
+puts Range.new(1,10)
+
