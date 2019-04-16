@@ -107,4 +107,3 @@ puts my_hash
 puts (1..10)
 #is the same as 
 puts Range.new(1,10)
-
