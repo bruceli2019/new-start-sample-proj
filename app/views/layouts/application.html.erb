@@ -5,14 +5,23 @@
     <!--full_title function defined in app/helpers/application_helper.rb-->
     <!--yield(:title) refers to the provide(...)function in app/views/static_pages-->
     <title><%= full_title(yield(:title)) %> </title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+  
+    <%= render 'layouts/head' %>
+    <!--find this in app/views/layouts/_shim.html.erb-->
+    <%= render 'layouts/shim' %>
+    
   </head>
-  
+
   <body>
-  <!--refers to the provide(...) function in app/views/static_pages-->
-  <%= yield %>
+    <%= render 'layouts/header' %>
   
+    <div class = "container">
+      <!--refers to the provide(...) function in app/views/static_pages-->
+      <%= yield %>
+    </div>
+  
+    <%= render 'layouts/footer' %>
   </body>
+  
+
 </html>
