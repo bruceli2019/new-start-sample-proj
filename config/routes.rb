@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   get '/signup', to: 'users#new'
+  
+  resources :users #introduces full REST architecture (create, edit, update, destroy, etc.)
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
