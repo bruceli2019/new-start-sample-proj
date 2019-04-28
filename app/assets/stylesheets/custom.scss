@@ -84,20 +84,20 @@ footer {
     padding-top: 5px;
     border-top: 1px solid $gray-medium-light;
     color: $gray-light;
-    
+
     // code I tacked on to make the footer not run to the edge
     margin-left: 2em;
     margin-right: 2em;
-    
+
     a {
         color: $gray;
-        
+
         &:hover {
             color: $gray-darker;
         }
     }
 
-    small { 
+    small {
         float: left;
     }
 
@@ -118,7 +118,7 @@ aside {
     section.user_info {
         margin-top: 20px;
     }
-    
+
     section {
         padding: 10px 0;
         margin-top: 20px;
@@ -126,13 +126,13 @@ aside {
             border: 0;
             padding-top: 0;
         }
-    
+
         span {
             display: block;
             margin-bottom: 3px;
             line-height: 1;
         }
-        
+
         h1 {
             font-size: 1.4em;
             text-align: left;
@@ -165,6 +165,24 @@ input {
     height: auto !important;
 }
 
+//see _error_messages.html.erb in app/views/shared
+#error_explanation{
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+
+//.field_with_errors and .form-control refers to html class
+.field_with_errors {
+  @extend .has-error;
+  .form_control{
+    color: $state-danger-text;
+  }
+}
+
 // miscellaneous
 
 .debug_dump{
@@ -174,9 +192,3 @@ input {
     margin-top: 45px;
     @include box_sizing; //this refers to the @mixin at the top
 }
-
-
-
-
-
-
