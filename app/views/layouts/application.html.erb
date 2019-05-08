@@ -5,24 +5,28 @@
     <!--full_title function defined in app/helpers/application_helper.rb-->
     <!--yield(:title) refers to the provide(...)function in app/views/static_pages-->
     <title><%= full_title(yield(:title)) %> </title>
-  
+
     <%= render 'layouts/head' %>
     <!--find this in app/views/layouts/_shim.html.erb-->
     <%= render 'layouts/shim' %>
-    
+
   </head>
 
   <body>
     <%= render 'layouts/header' %>
-  
+
     <div class = "container">
+      <!-- in users_controller.rb -->
+      <% flash.each do |flash_key, message| %>
+        <div class = "alert alert-<%=flash_key%>"> <%= message %> </div>
+      <% end %>
       <!--refers to the provide(...) function in app/views/static_pages-->
       <%= yield %>
+
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
-  
-    <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
   </body>
-  
+
 
 </html>
