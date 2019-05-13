@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-
-  get 'users/new'
-
   #set standard page
   #this automatically generates root_path and root_url
   root "static_pages#home"
-  
+
   #automatically generates help_path and help_url
   get '/help', to: 'static_pages#help'
-  
+
   get '/about', to: 'static_pages#about'
-  
+
   get '/contact', to: 'static_pages#contact'
 
   get '/signup', to: 'users#new'
+
+  post '/signup', to: 'users#create'
+
+  resources :users #introduces full REST architecture (create, edit, update, destroy, etc.)
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
