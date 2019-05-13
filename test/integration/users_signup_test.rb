@@ -9,7 +9,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get signup_path
 
     assert_no_difference 'User.count' do
-      post signup_path, params: {user: {
+      post users_path, params: {user: {
                                         name: "",
                                         email: "invalid@email",
                                         password: "bar",
@@ -26,6 +26,23 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       assert_select 'form[action="/signup"]'
   end
 
+  test "valid signup information" do
+    get signup_path
 
+    assert_difference 'User.count', 1 do
+      post users_path, params: {user: {
+                                        name: "John Cena",
+                                        email: "johncena@gmail.com",
+                                        password: "johncena1",
+                                        password_confirmation: "johncena1"
+                                        }
+                                }
+    end
+
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select 'div.alert-success' #see table 5.2 in Rails Tutorial and 7.4.2
+    assert_not flash.nil?
+  end
 
 end
