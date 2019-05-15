@@ -1,1 +1,6 @@
-#empty
+bruce:
+  name: Bruce theGreat
+  email: bruce@thegreat.com
+  #we use the same password 'password' because there's no password column
+  #in the database
+  password_digest: <%= User.digest('password') %>
